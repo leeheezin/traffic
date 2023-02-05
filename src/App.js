@@ -1,7 +1,6 @@
 import axios from "axios";
 import React from "react";
 import Traffic from "./Traffic";
-
 class App extends React.Component {
   state = {
     isLoading: true,
@@ -9,7 +8,7 @@ class App extends React.Component {
   }
 
 getTraffic() {
-  const url = `http://data.ex.co.kr/openapi/trafficapi/nationalTrafficVolumn?key=5931477321&type=json&sumDate=20230203`;
+  const url = `http://data.ex.co.kr/openapi/buslane/speedDirection?key=5931477321&type=json&collectDate=20230204&collectHour=10&numOfRows=10&pageNo=1`;
   console.log(url);
   axios.get(url).then((Response)=>{
     const data = Response.data.list;
@@ -37,11 +36,10 @@ render(){
         <div className="trafficInfo">
           {data.map((d,cnt)=>{
             return(<Traffic
-              sumDate={data[cnt].sumDate}
-              exDivCode={data[cnt].exDivCode}
-              tcsType={data[cnt].tcsType}
-              carType={data[cnt].carType}
-              trafficVolumn={data[cnt].trafficVolumn}/>)
+              avgSpeed={data[cnt].avgSpeed}
+              conzoneName={data[cnt].conzoneName}
+              laneType={data[cnt].laneType}
+              collectDate={data[cnt].collectDate}/>)
           })}
         </div>
       )}

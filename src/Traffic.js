@@ -1,20 +1,18 @@
 import React from "react";
 
 function Traffic({
-    exDivCode,
-    tcsType,
-    carType,
-    sumDate,
-    trafficVolumn
+    avgSpeed,
+    conzoneName,
+    laneType,
+    collectDate
 }){
     return(
         <div className="traffic">
-            <h3>일자별 교통량 현황</h3>
-            <div className="date">측정일시:{sumDate}</div>
-            <div className="exDivCode">집계주체구분:{exDivCode}</div>
-            <div className="tcsType">하이패스/일반구분:{tcsType}</div>
-            <div className="carType">차종구분:{carType}</div>
-            <div className="trafficVolumn">수량:{trafficVolumn}</div>
+            <h3>버스전용차로구간 방향별 일별 1시간 구간통행속도</h3>
+            <div className="speed">평균속도: {avgSpeed}</div>
+            <div className="conzoneName">콘존명: {conzoneName}</div>
+            <div className="type">상세코드명: {laneType}</div>
+            <div className="date">집계일자: {collectDate}</div>
         </div>
     )
 }
